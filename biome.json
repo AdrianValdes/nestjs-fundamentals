@@ -1,0 +1,14 @@
+{
+    "linter": {
+        "rules": {
+            "suspicious": {},
+            "style": {},
+            "correctness": {}
+        }
+    },
+    "javascript": {
+        "parser": {
+            "unsafeParameterDecoratorsEnabled": true
+        }
+    }
+}
