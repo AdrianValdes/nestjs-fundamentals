@@ -1,9 +1,15 @@
 {
     "linter": {
         "rules": {
-            "suspicious": {},
-            "style": {},
-            "correctness": {}
+            "suspicious": {
+                "noPrototypeBuiltins": "off"
+            },
+            "style": {
+                "useImportType": "off"
+            },
+            "correctness": {
+                "noUnusedImports": "error"
+            }
         }
     },
     "javascript": {
