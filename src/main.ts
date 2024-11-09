@@ -9,6 +9,9 @@ async function bootstrap() {
 			whitelist: true,
 			forbidNonWhitelisted: true,
 			transform: true,
+			transformOptions: {
+				enableImplicitConversion: true, // convert query params to number
+			},
 		}),
 	);
 	await app.listen(3000);
