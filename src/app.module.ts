@@ -36,6 +36,12 @@ ConfigModule.forRoot({
 		}),
 	],
 	controllers: [AppController],
-	providers: [AppService],
+	providers: [
+		AppService,
+		// {
+		// 	provide: APP_PIPE,
+		// 	useClass: ValidationPipe, // apply to all routes in the application
+		// },
+	],
 })
 export class AppModule {}
