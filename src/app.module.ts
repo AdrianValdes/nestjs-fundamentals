@@ -7,6 +7,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { CoffeeRatingModule } from "./coffee-rating/coffee-rating.module";
 import { CoffeesModule } from "./coffees/coffees.module";
 import { ConfigModule } from "@nestjs/config";
+import { CommonModule } from './common/common.module';
 import appConfig from "./config/app.config";
 
 ConfigModule.forRoot({
@@ -34,6 +35,7 @@ ConfigModule.forRoot({
 				synchronize: true, // your entities will be synced with the database(recommended: disable in prod)
 			}),
 		}),
+		CommonModule,
 	],
 	controllers: [AppController],
 	providers: [
