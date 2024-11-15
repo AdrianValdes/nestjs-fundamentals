@@ -15,6 +15,7 @@ import { CreateCoffeeDto } from "./dto/create-coffee.dto";
 import { UpdateCoffeeDto } from "./dto/update-coffee.dto";
 import { PaginationQueryDto } from "src/common/dto/pagination-query.dto";
 import { Public } from "src/common/decorators/public.decorator";
+import { ParseIntPipe } from "src/common/pipes/parse-int.pipe";
 
 // @UsePipes() // apply to all routes in the controller
 @Controller("coffees")
@@ -29,7 +30,7 @@ export class CoffeesController {
 
 	@UsePipes(ValidationPipe) // apply to specific routes
 	@Get(":id")
-	findOne(@Param("id") id: number) {
+	findOne(@Param("id", ParseIntPipe) id: number) {
 		return this.coffeesService.findOne(id);
 	}
 
