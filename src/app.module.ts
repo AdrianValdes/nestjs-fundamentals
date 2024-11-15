@@ -1,3 +1,4 @@
+import * as Joi from "@hapi/joi";
 import { Module } from "@nestjs/common";
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
@@ -6,7 +7,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { CoffeeRatingModule } from "./coffee-rating/coffee-rating.module";
 import { CoffeesModule } from "./coffees/coffees.module";
 import { ConfigModule } from "@nestjs/config";
-import Joi from "@hapi/joi";
+import appConfig from "./config/app.config";
 
 ConfigModule.forRoot({
 	validationSchema: Joi.object({
@@ -17,7 +18,7 @@ ConfigModule.forRoot({
 @Module({
 	imports: [
 		ConfigModule.forRoot({
-			envFilePath: ".env",
+			load: [appConfig],
 		}),
 		CoffeesModule,
 		CoffeeRatingModule,
